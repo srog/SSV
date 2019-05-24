@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS", "CMS\CMS.csproj", "{0E488A30-7D33-4D9E-8D6F-6D8E85FAB2E1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SsvDb", "SsvDb\SsvDb.sqlproj", "{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E488A30-7D33-4D9E-8D6F-6D8E85FAB2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E488A30-7D33-4D9E-8D6F-6D8E85FAB2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E488A30-7D33-4D9E-8D6F-6D8E85FAB2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E488A30-7D33-4D9E-8D6F-6D8E85FAB2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28647BCA-F7E3-4AD6-86DC-DB79AD4D4755}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D41A80AD-0A06-4614-A079-491F0CC311AE}
+	EndGlobalSection
+EndGlobal

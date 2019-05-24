@@ -1,0 +1,60 @@
+﻿@model CMS.Models.Blog
+
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<label runat="server" class="h3">@Model.Name</label>
+
+<p>
+    @using (Html.BeginForm("CreateBlogItem", "Blog", new { blogId = Model.Id }, FormMethod.Post))
+    {
+
+        <table class="table-bordered" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Created)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().CreatedBy)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Text)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Created)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Text)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <label class="h4">Create new entry:</label>
+
+        @Html.TextAreaFor(b => b.NewItem, 3, 80, null)
+        <input name="Create" type="submit" value="Post" />
+
+    }
+</p>

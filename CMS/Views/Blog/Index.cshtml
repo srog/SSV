@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CMS.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <img src="images/divider1.png" />
+</div>
+
+
+<h2>All Blogs</h2>
+
+<hr />
+
+<table class="table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                <h4>Blog Title</h4>
+            </th>
+            <th>
+                <h4>Created At</h4>
+            </th>
+            <th>
+                <h4>User Created</h4>
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Select", "Blog", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<p>
+    <a asp-action="Create" class="h2">Create New Blog</a>
+</p>

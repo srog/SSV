@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[BlogItem].[Name] is being dropped, data loss could occur.
+
+** User actions
+     Alter
+       [dbo].[BlogItem] (Table)
+       [dbo].[spInsertBlogItem] (Procedure)
+
+** Supporting actions
+     Refresh
+       [dbo].[spDeleteBlogItem] (Procedure)
+       [dbo].[spGetBlogItems] (Procedure)
+       [dbo].[spUpdateBlogItem] (Procedure)
+
+The column [dbo].[BlogItem].[Name] is being dropped, data loss could occur.
+

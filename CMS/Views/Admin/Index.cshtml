@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin Page</h2>
+
+<div class="row">
+    <div class="col-md-3">
+
+        <ul>
+            <li class="h3">@Html.ActionLink("Users", "Index", "Admin")</li>
+            <li class="h3">@Html.ActionLink("Update Details", "Update", "Admin")</li>
+        </ul>
+    </div>
+</div>
