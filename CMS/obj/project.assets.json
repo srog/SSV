@@ -16,6 +16,15 @@
           "lib/netstandard2.0/Dapper.dll": {}
         }
       },
+      "jQuery/1.12.4": {
+        "type": "package"
+      },
+      "jQuery.UI.Combined/1.12.1": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.12.4"
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4644,6 +4653,84 @@
         "lib/netstandard1.3/Dapper.xml",
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "jQuery/1.12.4": {
+      "sha512": "pIYtWlFI5PGlJVB8jm9H96pAQ27jQhA9sCxMeGweeC3ByQRaB8BwkIuGdTt4go3IEKTmmfRC2y5k0FLFizWDQg==",
+      "type": "package",
+      "path": "jquery/1.12.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.12.4-vsdoc.js",
+        "Content/Scripts/jquery-1.12.4.js",
+        "Content/Scripts/jquery-1.12.4.min.js",
+        "Content/Scripts/jquery-1.12.4.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-1.12.4.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.12.4.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
+    "jQuery.UI.Combined/1.12.1": {
+      "sha512": "5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ==",
+      "type": "package",
+      "path": "jquery.ui.combined/1.12.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Content/themes/base/accordion.css",
+        "Content/Content/themes/base/all.css",
+        "Content/Content/themes/base/autocomplete.css",
+        "Content/Content/themes/base/base.css",
+        "Content/Content/themes/base/button.css",
+        "Content/Content/themes/base/core.css",
+        "Content/Content/themes/base/datepicker.css",
+        "Content/Content/themes/base/dialog.css",
+        "Content/Content/themes/base/draggable.css",
+        "Content/Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png",
+        "Content/Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png",
+        "Content/Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "Content/Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png",
+        "Content/Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png",
+        "Content/Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "Content/Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "Content/Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "Content/Content/themes/base/images/ui-icons_222222_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_2e83ff_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_444444_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_454545_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_555555_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_777620_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_777777_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_888888_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_cc0000_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_cd0a0a_256x240.png",
+        "Content/Content/themes/base/images/ui-icons_ffffff_256x240.png",
+        "Content/Content/themes/base/jquery-ui.css",
+        "Content/Content/themes/base/jquery-ui.min.css",
+        "Content/Content/themes/base/menu.css",
+        "Content/Content/themes/base/progressbar.css",
+        "Content/Content/themes/base/resizable.css",
+        "Content/Content/themes/base/selectable.css",
+        "Content/Content/themes/base/selectmenu.css",
+        "Content/Content/themes/base/slider.css",
+        "Content/Content/themes/base/sortable.css",
+        "Content/Content/themes/base/spinner.css",
+        "Content/Content/themes/base/tabs.css",
+        "Content/Content/themes/base/theme.css",
+        "Content/Content/themes/base/tooltip.css",
+        "Content/Scripts/jquery-ui-1.12.1.js",
+        "Content/Scripts/jquery-ui-1.12.1.min.js",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/uninstall.ps1",
+        "jquery.ui.combined.1.12.1.nupkg.sha512",
+        "jquery.ui.combined.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12564,7 +12651,8 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.9"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.9",
+      "jQuery.UI.Combined >= 1.12.1"
     ]
   },
   "packageFolders": {
@@ -12575,11 +12663,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\CMS\\CMS\\CMS.csproj",
+      "projectUniqueName": "D:\\Code\\SSV\\CMS\\CMS.csproj",
       "projectName": "CMS",
-      "projectPath": "D:\\Code\\CMS\\CMS\\CMS.csproj",
+      "projectPath": "D:\\Code\\SSV\\CMS\\CMS.csproj",
       "packagesPath": "C:\\Users\\wellw\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\CMS\\CMS\\obj\\",
+      "outputPath": "D:\\Code\\SSV\\CMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -12634,6 +12722,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.1.9, )"
+          },
+          "jQuery.UI.Combined": {
+            "target": "Package",
+            "version": "[1.12.1, )"
           }
         },
         "imports": [

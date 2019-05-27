@@ -4,56 +4,52 @@
     ViewData["Title"] = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div>
+        <a asp-action="Index" class="h3">Back to Blog Home</a>
+    </div>
 
+    <div style="width:50%" class="table-bordered text-danger">
+        <hr />
+        <label class="h2"><strong>Blog Details:</strong> @Model.Name</label>
+        <br />
+        <label class="h4"><strong>Created on: </strong> @Model.Created</label>
+        <br />
+        <label class="h4"><strong>Written By:</strong> @Model.CreatedBy</label>
+    </div>
 
-<label runat="server" class="h3">@Model.Name</label>
+<div>
+    <img src="~/images/divider1.png" />
+</div>
 
 <p>
     @using (Html.BeginForm("CreateBlogItem", "Blog", new { blogId = Model.Id }, FormMethod.Post))
     {
+    <ol>
+        @foreach (var item in Model.Items)
+        {
+        <li style="background-image:repeating-linear-gradient()">
+            <div class="h5">
+                Created on: @Html.DisplayFor(modelItem => item.Created)
+                <br />
+                By: @Html.DisplayFor(modelItem => item.CreatedBy)
+            </div>
+            <div class="h4" style="font-family:'Bodoni MT'; font-size:22px">
+                @Html.DisplayFor(modelItem => item.Text)
+            </div>
+            <div class="h4">
+                @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id, blogId = item.BlogId })
+            </div>
+            <hr />
+        </li>
+        }
+    </ol>
+        <div>
+            <img src="~/images/divider1.png" />
+        </div>
 
-        <table class="table-bordered" style="width:100%">
-            <thead>
-                <tr>
-
-                    <th>
-                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Created)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().CreatedBy)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Text)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Items)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Created)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreatedBy)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Text)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <br />
         <label class="h4">Create new entry:</label>
 
-        @Html.TextAreaFor(b => b.NewItem, 3, 80, null)
+        @Html.TextAreaFor(Model => Model.NewItem, 3, 100, null)
         <input name="Create" type="submit" value="Post" />
 
     }

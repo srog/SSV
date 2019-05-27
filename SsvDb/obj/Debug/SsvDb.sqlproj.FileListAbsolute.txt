@@ -4,7 +4,8 @@ D:\Code\CMS\SsvDb\bin\Debug\SsvDb.pdb
 D:\Code\CMS\SsvDb\obj\Debug\SsvDb.sqlprojAssemblyReference.cache
 D:\Code\CMS\SsvDb\obj\Debug\SsvDb.dll
 D:\Code\CMS\SsvDb\obj\Debug\SsvDb.pdb
-D:\Code\CMS\SsvDb\obj\Debug\Model.xml
-D:\Code\CMS\SsvDb\obj\Debug\refactor.xml
-D:\Code\CMS\SsvDb\obj\Debug\postdeploy.sql
-D:\Code\CMS\SsvDb\obj\Debug\predeploy.sql
+D:\Code\SSV\SsvDb\bin\Debug\SsvDb.dacpac
+D:\Code\SSV\SsvDb\bin\Debug\SsvDb.dll
+D:\Code\SSV\SsvDb\bin\Debug\SsvDb.pdb
+D:\Code\SSV\SsvDb\obj\Debug\SsvDb.dll
+D:\Code\SSV\SsvDb\obj\Debug\SsvDb.pdb

@@ -1,13 +1,11 @@
 ﻿using CMS.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CMS.Services
 {
     public interface IAuthService
     {
+        string GetCurrentUser();
+
         bool IsAuthenticated();
         bool IsAdminUser();
         int Login(string username, string password);

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "9642e3a43c9e3cb76e43afed80e63734222bbcf5"
+    "signature": "6bcb6b9d2739167b46205907640c8eae99fbcd6a"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,8 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
+          "jQuery.UI.Combined": "1.12.1"
         },
         "runtime": {
           "CMS.dll": {}
@@ -51,6 +52,12 @@
         },
         "compile": {
           "lib/netstandard2.0/Dapper.dll": {}
+        }
+      },
+      "jQuery/1.12.4": {},
+      "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -3479,6 +3486,20 @@
       "sha512": "sha512-mmnJNhKMeF2KhvVXDoVQlFxre8aJAo71YBJrKqFlvuqzYC2QiXUq94/GCDBJzU7paq4GqpkV2glw3308TcGibw==",
       "path": "dapper/1.60.6",
       "hashPath": "dapper.1.60.6.nupkg.sha512"
+    },
+    "jQuery/1.12.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pIYtWlFI5PGlJVB8jm9H96pAQ27jQhA9sCxMeGweeC3ByQRaB8BwkIuGdTt4go3IEKTmmfRC2y5k0FLFizWDQg==",
+      "path": "jquery/1.12.4",
+      "hashPath": "jquery.1.12.4.nupkg.sha512"
+    },
+    "jQuery.UI.Combined/1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ==",
+      "path": "jquery.ui.combined/1.12.1",
+      "hashPath": "jquery.ui.combined.1.12.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",

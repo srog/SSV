@@ -5,6 +5,10 @@ namespace CMS.Services
 {
     public class AuthService : IAuthService
     {
+        public string GetCurrentUser()
+        {
+            return "Admin User";
+        }
         public int CreateUser(User user)
         {
             throw new NotImplementedException();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\CMS\\CMS\\CMS.csproj": {}
+    "D:\\Code\\SSV\\CMS\\CMS.csproj": {}
   },
   "projects": {
-    "D:\\Code\\CMS\\CMS\\CMS.csproj": {
+    "D:\\Code\\SSV\\CMS\\CMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\CMS\\CMS\\CMS.csproj",
+        "projectUniqueName": "D:\\Code\\SSV\\CMS\\CMS.csproj",
         "projectName": "CMS",
-        "projectPath": "D:\\Code\\CMS\\CMS\\CMS.csproj",
+        "projectPath": "D:\\Code\\SSV\\CMS\\CMS.csproj",
         "packagesPath": "C:\\Users\\wellw\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\CMS\\CMS\\obj\\",
+        "outputPath": "D:\\Code\\SSV\\CMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -66,6 +66,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
+            },
+            "jQuery.UI.Combined": {
+              "target": "Package",
+              "version": "[1.12.1, )"
             }
           },
           "imports": [

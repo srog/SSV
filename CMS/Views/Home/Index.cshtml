@@ -16,62 +16,73 @@
     <div class="col-md-3">
 
         <ul>
+            <li class="h3">@DateTime.Now.ToLongDateString()</li>
+
+
+            <li class="h3">@Html.ActionLink("This Week", "Index", "Events")</li>
+            <li class="text-primary">What's happening this week</li>
+
+
             <li class="h3">@Html.ActionLink("Blog Index", "Index", "Blog")</li>
             <li class="text-primary">Site Blog Home</li>
-            <li class="h3">@Html.ActionLink("Music", "Index", "Music")</li>
-            <li class="text-primary">Reviews, Articles, Free Tunes, Links</li>
-            <li class="h3">@Html.ActionLink("Movies", "Index", "Movies")</li>
-            <li class="text-primary">Film Reviews, Articles, Fun Facts and Latest News</li>
 
-            <li class="h3">@Html.ActionLink("Sport", "Index", "Sport")</li>
+            <li class="h3">@Html.ActionLink("Rate It", "Index", "Ratings")</li>
             <li class="text-primary">News, Information, Latest</li>
 
-            <li class="h3">@Html.ActionLink("Tech", "Index", "Technology")</li>
-            <li class="text-primary">What's new in the world of IT</li>
 
             <li class="h3">@Html.ActionLink("Games", "Index", "Games")</li>
             <li class="text-primary">Fun Games, Play for Free!</li>
 
         </ul>
     </div>
-</div>
 
-<div>
-    <img src="images/divider1.png" />
-</div>
-<div class="row">
-    <div class="col-md-3">
-        <h2>Pinned Links</h2>
-        <ul>
-            <li><a target="_blank" href='https://thefunkyfox.bandcamp.com/'>My Bandcamp Page</a> </li>
-            <li>Link 2</li>
-        </ul>
-    </div>
-
-    <div class="col-md-3">
-        <h2>Latest Articles</h2>
-        <ul>
-            <li>Article 1</li>
-            <li>Article 2</li>
-            <li>Article 3</li>
-            <li>Article 4</li>
-        </ul>
-    </div>
+    @*<div class="col-md-3">
+        <textarea class="text-center" rows="15" cols="70" />
     
-    <div class="col-md-3">
-        <h2>Reviews</h2>
-        <ul>
-            <li>etc etc etc</li>
-        </ul>
+    </div>*@
+
+        @*<div class="col-md-3">
+                @Html.EditorFor(model => model.SelectedDate, new { @class = "date-picker" })
+            </div>*@
+
     </div>
 
-    <div class="col-md-3">
-        <h2>More stuff</h2>
-        <ul>
-            <li>Email to find out more</li>
-            <li>Please donate to our patreon</li>
-            <li>Email to find out more</li>
-            <li>Email to find out more</li>
-        </ul>
+    <div>
+        <img src="images/divider1.png" />
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Pinned Links</h2>
+            <ul>
+                <li><a target="_blank" href='https://thefunkyfox.bandcamp.com/'>My Bandcamp Page</a> </li>
+                <li>Football Management Simulator - Play for free !</li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Latest News/Articles</h2>
+            <ul>
+                <li>Article 1</li>
+                <li>Article 2</li>
+                <li>Article 3</li>
+                <li>Article 4</li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Latest Ratings/Reviews</h2>
+            <ul>
+                <li>etc etc etc</li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <h2>More stuff</h2>
+            <ul>
+                <li>Email to find out more</li>
+                <li>Please give me some money</li>
+                <li>Adverts</li>
+                <li>Links to other sites</li>
+            </ul>
+        </div>
+    </div>

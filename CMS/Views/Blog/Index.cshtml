@@ -10,7 +10,7 @@
 </div>
 
 
-<h2>All Blogs</h2>
+<h2 class="h2" style="font-family:'Bodoni MT'; font-size:30px">All Blogs</h2>
 
 <hr />
 
@@ -21,10 +21,10 @@
                 <h4>Blog Title</h4>
             </th>
             <th>
-                <h4>Created At</h4>
+                <h4>Created On</h4>
             </th>
             <th>
-                <h4>User Created</h4>
+                <h4>Created By User</h4>
             </th>
 
             <th></th>
@@ -36,7 +36,7 @@
             <tr>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                     <h2 style="font-family:'Bodoni MT'; font-size:18px">@Html.DisplayFor(modelItem => item.Name)</h2>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Created)
@@ -53,7 +53,9 @@
         }
     </tbody>
 </table>
-<hr />
+<div>
+    <img src="images/divider1.png" />
+</div>
 <p>
-    <a asp-action="Create" class="h2">Create New Blog</a>
+    <a asp-action="Create" class="h2" style="font-family:'Bodoni MT'; font-size:30px">Create New Blog</a>
 </p>
