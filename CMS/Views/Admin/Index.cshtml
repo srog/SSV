@@ -1,17 +1,29 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Admin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Admin Page</h2>
 
+<div>
+    <img src="images/divider1.png" />
+</div>
+
 <div class="row">
     <div class="col-md-3">
-
         <ul>
-            <li class="h3">@Html.ActionLink("Users", "Index", "Admin")</li>
-            <li class="h3">@Html.ActionLink("Update Details", "Update", "Admin")</li>
+            <li class="h3">@Html.ActionLink("UserList", "UserList", "Admin")</li>
+            <li class="h3">@Html.ActionLink("All Movies", "MovieList", "Admin")</li>
+            <li class="h3">@Html.ActionLink("All Music", "MusicList", "Admin")</li>
         </ul>
     </div>
+    
+    <div>
+        <img src="images/divider1.png" />
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to home", "Index", "Home");
+    </div>
+
 </div>

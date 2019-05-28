@@ -59,6 +59,11 @@
     <Folder Include="Tables" />
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\Blog" />
+    <Folder Include="SeedData" />
+    <Folder Include="StoredProcedures\User" />
+    <Folder Include="StoredProcedures\Event" />
+    <Folder Include="StoredProcedures\Entity" />
+    <Folder Include="StoredProcedures\Rating" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Blog.sql" />
@@ -72,8 +77,39 @@
     <Build Include="StoredProcedures\Blog\spUpdateBlogItem.sql" />
     <Build Include="StoredProcedures\Blog\spDeleteBlog.sql" />
     <Build Include="StoredProcedures\Blog\spDeleteBlogItem.sql" />
+    <Build Include="StoredProcedures\Blog\spGetBlogItem.sql" />
+    <Build Include="Tables\User.sql" />
+    <Build Include="StoredProcedures\User\spGetUser.sql" />
+    <Build Include="StoredProcedures\User\spGetAllUsers.sql" />
+    <Build Include="Tables\Event.sql" />
+    <Build Include="StoredProcedures\Event\spGetAllEvents.sql" />
+    <Build Include="StoredProcedures\Event\spGetEventsForUser.sql" />
+    <Build Include="StoredProcedures\Event\spGetEvent.sql" />
+    <Build Include="StoredProcedures\Event\spInsertEvent.sql" />
+    <Build Include="StoredProcedures\Event\spUpdateEvent.sql" />
+    <Build Include="StoredProcedures\Event\spDeleteEvent.sql" />
+    <Build Include="Tables\Entity.sql" />
+    <Build Include="StoredProcedures\Entity\spGetAllEntities.sql" />
+    <Build Include="StoredProcedures\Entity\spInsertEntity.sql" />
+    <Build Include="StoredProcedures\Entity\spInsertMovie.sql" />
+    <Build Include="StoredProcedures\Entity\spInsertMusic.sql" />
+    <Build Include="StoredProcedures\Entity\spGetAllMovies.sql" />
+    <Build Include="StoredProcedures\Entity\spGetAllMusic.sql" />
+    <Build Include="StoredProcedures\Rating\spGetRatingsForEntity.sql" />
+    <Build Include="Tables\Rating.sql" />
+    <Build Include="StoredProcedures\Rating\spInsertRating.sql" />
+    <Build Include="Tables\Movie.sql" />
+    <Build Include="Tables\Music.sql" />
+    <Build Include="StoredProcedures\Entity\spGetMovieDetails.sql" />
+    <Build Include="StoredProcedures\Entity\spGetMusicDetails.sql" />
+    <Build Include="StoredProcedures\User\spInsertUser.sql" />
+    <Build Include="StoredProcedures\User\spUpdateUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SsvDb.publish.xml" />
+    <None Include="SeedData\User.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Script.PreDeployment1.sql" />
   </ItemGroup>
 </Project>

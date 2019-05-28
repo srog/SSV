@@ -13,6 +13,7 @@ namespace CMS.Services
 
 
         IEnumerable<BlogItem> GetBlogItems(int blogId);
+        BlogItem GetBlogItem(int itemId);
         int AddBlogItem(BlogItem blogItem);
         int UpdateBlogItem(BlogItem blogItem);
         void DeleteBlogItem(int id);

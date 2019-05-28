@@ -6,21 +6,27 @@ namespace CMS.Services
     public class HomeService : IHomeService
     {
         private readonly IConfiguration _configuration;
+        private readonly IAuthService _authService;
 
-        public HomeService(IConfiguration configuration)
+        public HomeService(IConfiguration configuration, IAuthService authService)
         {
             _configuration = configuration;
-        }
-        public string GetInfo()
-        {
-            return "test";
+            _authService = authService;
         }
 
         public HomeInfo GetHomeInfo()
         {
+            var loggedInUsername = _authService.GetCurrentUsername();
+
+            if (loggedInUsername == "")
+            {
+                _authService.Login("admin", "password1");
+            }
+
             return new HomeInfo
                 {
-                    SiteCreatedDate = _configuration.GetValue<string>("SiteCreatedDate")
+                    SiteCreatedDate = _configuration.GetValue<string>("SiteCreatedDate"),
+                    LoggedInUsername = loggedInUsername
                 };
         }
     }

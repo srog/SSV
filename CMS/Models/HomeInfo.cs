@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace CMS.Models
 {
@@ -8,6 +7,7 @@ namespace CMS.Models
         public string SiteCreatedDate { get; set; }
 
         public DateTime SelectedDate { get; set; }
+        public string LoggedInUsername { get; set; }
 
     }
 }

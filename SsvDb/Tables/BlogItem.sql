@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[BlogId] INT NOT NULL,
 	[Created] DATETIME,
-	[CreatedBy] NVARCHAR(250),
+	[CreatedByUser] INT,
 	[Text] NVARCHAR(MAX)
 );
 GO

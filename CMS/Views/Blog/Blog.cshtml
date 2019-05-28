@@ -14,7 +14,7 @@
         <br />
         <label class="h4"><strong>Created on: </strong> @Model.Created</label>
         <br />
-        <label class="h4"><strong>Written By:</strong> @Model.CreatedBy</label>
+        <label class="h4"><strong>Written By:</strong> @Model.CreatedByFullName</label>
     </div>
 
 <div>
@@ -31,7 +31,7 @@
             <div class="h5">
                 Created on: @Html.DisplayFor(modelItem => item.Created)
                 <br />
-                By: @Html.DisplayFor(modelItem => item.CreatedBy)
+                By: @Html.DisplayFor(modelItem => item.CreatedByFullName)
             </div>
             <div class="h4" style="font-family:'Bodoni MT'; font-size:22px">
                 @Html.DisplayFor(modelItem => item.Text)

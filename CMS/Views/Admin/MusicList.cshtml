@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CMS.Models.MusicDetails>
+
+@{
+    ViewData["Title"] = "MusicList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Music List</h2>
+
+<p>
+    <a asp-action="CreateMusic">Create New Entry</a>
+</p>
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EntityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpotifyLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageFilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearReleased)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpotifyLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageFilePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearReleased)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditMusic", new { id=item.EntityId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

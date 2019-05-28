@@ -5,7 +5,7 @@
 	@id int output
 AS
 DECLARE @result int
-	INSERT INTO [BlogItem] ([Created], [BlogId], [CreatedBy], [Text])
+	INSERT INTO [BlogItem] ([Created], [BlogId], [CreatedByUser], [Text])
 	VALUES (GETDATE(), @blogId, @createdBy, @text)
 
 	SET @id = SCOPE_IDENTITY()
