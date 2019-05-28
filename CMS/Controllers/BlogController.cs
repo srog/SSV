@@ -27,7 +27,7 @@ namespace CMS.Controllers
         }
         public IActionResult CreateNewBlog(Blog blog)
         {
-            var newId = _blogService.AddBlog(new Blog { CreatedBy = _authService.GetCurrentUser(), Name = blog.Name });
+            var newId = _blogService.AddBlog(new Blog { CreatedByUser = _authService.GetCurrentUser().Id, Name = blog.Name });
             return Blog(newId);
         }
 
@@ -37,14 +37,12 @@ namespace CMS.Controllers
             var newItem = new BlogItem {
                 BlogId = blogId,
                 Created = DateTime.Now,
-                CreatedBy = _authService.GetCurrentUser(),
+                CreatedByUser = _authService.GetCurrentUser().Id,
                 Text = blogRecord.NewItem
             };
             _blogService.AddBlogItem(newItem);
-            //var blog = _blogService.GetBlog(blogId);
 
-
-            return Blog(blogId);// View("Blog", blog);
+            return Blog(blogId);
         }
 
 
@@ -55,14 +53,28 @@ namespace CMS.Controllers
             return View("Blog", blog);
         }
 
+        // only delete own
         public IActionResult Delete(int id)
         {
-            _blogService.DeleteBlog(id);
+            var blog = _blogService.GetBlog(id);
+            if (blog!= null && _authService.GetCurrentUser().Id == blog.CreatedByUser)
+            {
+                _blogService.DeleteBlog(id);
+            }
+
             ModelState.Clear();
             return Index();
         }
+
+        //only delete own ?
         public IActionResult DeleteItem(int id, int blogId)
         {
+            var blogItem = _blogService.GetBlogItem(id);
+            if (blogItem != null && _authService.GetCurrentUser().Id == blogItem.CreatedByUser)
+            {
+                _blogService.DeleteBlog(id);
+            }
+
             _blogService.DeleteBlogItem(id);
             return Blog(blogId);
         }

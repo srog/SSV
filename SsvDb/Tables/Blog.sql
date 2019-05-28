@@ -3,6 +3,6 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[Name] NVARCHAR(250),
 	[Created] DATETIME,
-	[CreatedBy] NVARCHAR(250)
+	[CreatedByUser] int
 
 )

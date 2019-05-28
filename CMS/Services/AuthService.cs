@@ -1,14 +1,53 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CMS.DataAccess;
 using CMS.Models;
+using CMS.Models.Enums;
 
 namespace CMS.Services
 {
     public class AuthService : IAuthService
     {
-        public string GetCurrentUser()
+        private static int _loggedInUserId;
+
+        private const string GET_USER = "spGetUser";
+        private const string GET_ALL_USERS = "spGetAllUsers";
+        private const string UPDATE_USER = "spUpdateUser";
+
+        private readonly IDataAccessor _dataAccessor;
+        public AuthService(IDataAccessor dataAccessor)
         {
-            return "Admin User";
+            _dataAccessor = dataAccessor;
         }
+
+
+        public User GetCurrentUser()
+        {
+            //var loggedInUserId = _loggedInUserId; // session / appsession / cookie
+
+            if (_loggedInUserId == 0)
+            {
+                return new User {FullName = "Guest", Id = 2, UserType = UserTypeEnum.Guest, Username = "Guest"};
+            }
+
+            return GetUser(_loggedInUserId);
+        }
+        public string GetCurrentUsername()
+        {
+            return GetCurrentUser().Username;
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            return _dataAccessor.Query<User>(GET_ALL_USERS);
+        }
+
+        public User GetUser(int id)
+        {
+            return _dataAccessor.QuerySingle<User>(GET_USER);
+        }
+
         public int CreateUser(User user)
         {
             throw new NotImplementedException();
@@ -31,17 +70,33 @@ namespace CMS.Services
 
         public int Login(string username, string password)
         {
-            throw new NotImplementedException();
+            // find matching user in db + authenticate
+            var users = _dataAccessor.Query<User>(GET_ALL_USERS);
+            var user = users.First(u => u.Username == username && u.Password == password);
+
+            if (user == null)
+            {
+                return 0;
+            }
+
+            _loggedInUserId = user.Id;
+            return _loggedInUserId;
         }
 
-        public int Logout()
+        public void Logout()
         {
-            throw new NotImplementedException();
+            _loggedInUserId = 0;
         }
 
+        
         public int UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            return _dataAccessor.QuerySingle<int>(UPDATE_USER,
+                new {user.Id, user.IsActive, user.Username, user.Password, user.UserType, user.FullName});
         }
+        //public void ActivateUser(int id)
+        //{
+
+        //}
     }
 }

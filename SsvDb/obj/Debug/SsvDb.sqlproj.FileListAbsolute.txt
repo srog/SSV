@@ -9,3 +9,9 @@ D:\Code\SSV\SsvDb\bin\Debug\SsvDb.dll
 D:\Code\SSV\SsvDb\bin\Debug\SsvDb.pdb
 D:\Code\SSV\SsvDb\obj\Debug\SsvDb.dll
 D:\Code\SSV\SsvDb\obj\Debug\SsvDb.pdb
+D:\Projects\Projects\SSV\SsvDb\obj\Debug\SsvDb.sqlprojAssemblyReference.cache
+D:\Projects\Projects\SSV\SsvDb\obj\Debug\SsvDb.dll
+D:\Projects\Projects\SSV\SsvDb\obj\Debug\SsvDb.pdb
+D:\Projects\Projects\SSV\SsvDb\bin\Debug\SsvDb.dacpac
+D:\Projects\Projects\SSV\SsvDb\bin\Debug\SsvDb.dll
+D:\Projects\Projects\SSV\SsvDb\bin\Debug\SsvDb.pdb
