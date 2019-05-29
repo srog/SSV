@@ -1,9 +1,10 @@
-﻿@model IEnumerable<CMS.Models.MusicDetails>
+﻿@model IEnumerable<CMS.Models.MusicEntry>
 
 @{
     ViewData["Title"] = "Music List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <h2>Music List</h2>
 
@@ -16,13 +17,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SpotifyLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageFilePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.YearReleased)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                (Average Rating)
@@ -38,22 +33,16 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpotifyLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageFilePath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YearReleased)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             
             <td>
-                @Component.InvokeAsync("MusicRating", new { entityId = item.EntityId }).Result
+                @Component.InvokeAsync("MusicRating", new { entityId = item.Id }).Result
 
             </td>
             
             <td>
-                @Component.InvokeAsync("MusicRater", new { entityId = item.EntityId }).Result
+                @Component.InvokeAsync("MusicRater", new { entityId = item.Id }).Result
             </td>
         </tr>
 }

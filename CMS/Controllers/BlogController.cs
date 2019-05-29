@@ -54,29 +54,29 @@ namespace CMS.Controllers
         }
 
         // only delete own
-        public IActionResult Delete(int id)
+        public RedirectToActionResult Delete(int id)
         {
             var blog = _blogService.GetBlog(id);
-            if (blog!= null && _authService.GetCurrentUser().Id == blog.CreatedByUser)
+            if ((blog != null && _authService.GetCurrentUser().Id == blog.CreatedByUser) || (_authService.IsAdminUser()))
             {
                 _blogService.DeleteBlog(id);
             }
 
             ModelState.Clear();
-            return Index();
+            return RedirectToAction("Index");
         }
 
         //only delete own ?
-        public IActionResult DeleteItem(int id, int blogId)
+        public RedirectToActionResult DeleteItem(int id, int blogId)
         {
             var blogItem = _blogService.GetBlogItem(id);
-            if (blogItem != null && _authService.GetCurrentUser().Id == blogItem.CreatedByUser)
+            if ((blogItem != null && _authService.GetCurrentUser().Id == blogItem.CreatedByUser) || _authService.IsAdminUser())
             {
-                _blogService.DeleteBlog(id);
+                _blogService.DeleteBlogItem(id);
             }
 
-            _blogService.DeleteBlogItem(id);
-            return Blog(blogId);
+            ModelState.Clear();
+            return RedirectToAction("Blog", blogId);
         }
     }
 }

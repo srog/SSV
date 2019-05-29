@@ -146,3 +146,14 @@ D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateUse
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Music\MusicList.g.cshtml.cs
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\MusicRating\MusicRating.g.cshtml.cs
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\EntityRater\EntityRater.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\CMS.csprojAssemblyReference.cache
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateMovie.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateMusic.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateUser.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\MovieList.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\MusicList.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\UserList.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Music\MusicList.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\MusicRating\MusicRating.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\MusicRater\MusicRater.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\LoginControl\LoginControl.g.cshtml.cs

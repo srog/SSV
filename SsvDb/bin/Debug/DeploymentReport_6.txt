@@ -1,0 +1,62 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[BlogItem]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Blog].[CreatedBy] is being dropped, data loss could occur.
+       The column [dbo].[BlogItem].[CreatedBy] is being dropped, data loss could occur.
+
+** User actions
+     Alter
+       [dbo].[Blog] (Table)
+       [dbo].[spGetAllBlogs] (Procedure)
+       [dbo].[spGetBlog] (Procedure)
+       [dbo].[spInsertBlog] (Procedure)
+       [dbo].[spGetBlogItems] (Procedure)
+       [dbo].[spInsertBlogItem] (Procedure)
+     Table rebuild
+       [dbo].[BlogItem] (Table)
+     Create
+       [dbo].[Entity] (Table)
+       [dbo].[Event] (Table)
+       [dbo].[Movie] (Table)
+       [dbo].[Music] (Table)
+       [dbo].[Rating] (Table)
+       [dbo].[User] (Table)
+       [dbo].[spDeleteEvent] (Procedure)
+       [dbo].[spGetAllEntities] (Procedure)
+       [dbo].[spGetAllEvents] (Procedure)
+       [dbo].[spGetAllMovies] (Procedure)
+       [dbo].[spGetAllMusic] (Procedure)
+       [dbo].[spGetAllUsers] (Procedure)
+       [dbo].[spGetBlogItem] (Procedure)
+       [dbo].[spGetEvent] (Procedure)
+       [dbo].[spGetEventsForUser] (Procedure)
+       [dbo].[spGetMovieDetails] (Procedure)
+       [dbo].[spGetMusicDetails] (Procedure)
+       [dbo].[spGetRatingsForEntity] (Procedure)
+       [dbo].[spGetUser] (Procedure)
+       [dbo].[spInsertEntity] (Procedure)
+       [dbo].[spInsertEvent] (Procedure)
+       [dbo].[spInsertMovie] (Procedure)
+       [dbo].[spInsertMusic] (Procedure)
+       [dbo].[spInsertRating] (Procedure)
+       [dbo].[spInsertUser] (Procedure)
+       [dbo].[spUpdateEvent] (Procedure)
+       [dbo].[spUpdateUser] (Procedure)
+
+** Supporting actions
+     Create
+       [dbo].[BlogItem].[idx_blogitem] (Index)
+     Refresh
+       [dbo].[spDeleteBlog] (Procedure)
+       [dbo].[spUpdateBlog] (Procedure)
+       [dbo].[spDeleteBlogItem] (Procedure)
+       [dbo].[spUpdateBlogItem] (Procedure)
+
+The column [dbo].[Blog].[CreatedBy] is being dropped, data loss could occur.
+The column [dbo].[BlogItem].[CreatedBy] is being dropped, data loss could occur.
+

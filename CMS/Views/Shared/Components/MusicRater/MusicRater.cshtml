@@ -1,0 +1,25 @@
+﻿@model Rating
+
+
+    <div>
+        @using (Html.BeginForm("Rate", "Music", new { entityId = Model.EntityId }, FormMethod.Post))
+        {
+
+            <span class="fa fa-star">&#9956;</span>
+            <span class="fa fa-star">&#9956;</span>
+            <span class="fa fa-star">&#9956;</span>
+
+            @*<img src="/images/whitestar.gif" alt="" class="fa fa-star" data-value="4" />
+            <img src="/images/whitestar.gif" alt="" class="fa fa-star" data-value="5" />*@
+
+
+            @Html.TextBoxFor(m => m.RatingValue)
+
+            @Html.TextAreaFor(Model => Model.RatingText, 3, 50, null)
+
+            <input name="Rate" type="submit" value="Rate" />
+        }
+    </div>
+
+
+

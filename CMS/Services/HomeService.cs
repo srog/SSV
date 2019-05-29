@@ -14,6 +14,15 @@ namespace CMS.Services
             _authService = authService;
         }
 
+        public int Login(string username, string password)
+        {
+            return _authService.Login(username, password);
+        }
+        public void Logout()
+        {
+            _authService.Logout();
+        }
+
         public HomeInfo GetHomeInfo()
         {
             var loggedInUsername = _authService.GetCurrentUsername();

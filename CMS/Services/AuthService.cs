@@ -28,7 +28,7 @@ namespace CMS.Services
 
             if (_loggedInUserId == 0)
             {
-                return new User {FullName = "Guest", Id = 2, UserType = UserTypeEnum.Guest, Username = "Guest"};
+                return new User {FullName = "Guest", Id = 0, UserType = UserTypeEnum.Guest, Username = "Guest"};
             }
 
             return GetUser(_loggedInUserId);
@@ -45,7 +45,7 @@ namespace CMS.Services
 
         public User GetUser(int id)
         {
-            return _dataAccessor.QuerySingle<User>(GET_USER);
+            return _dataAccessor.QuerySingle<User>(GET_USER, new { id } );
         }
 
         public int CreateUser(User user)
@@ -60,7 +60,7 @@ namespace CMS.Services
 
         public bool IsAdminUser()
         {
-            return true;
+            return GetCurrentUser().UserType == UserTypeEnum.Admin;
         }
 
         public bool IsAuthenticated()
@@ -70,6 +70,10 @@ namespace CMS.Services
 
         public int Login(string username, string password)
         {
+            if (_loggedInUserId > 0)
+            {
+                return _loggedInUserId;
+            }
             // find matching user in db + authenticate
             var users = _dataAccessor.Query<User>(GET_ALL_USERS);
             var user = users.First(u => u.Username == username && u.Password == password);

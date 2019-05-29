@@ -3,6 +3,6 @@
 AS
 	SELECT b.*, u.Fullname AS 'CreatedByFullName' 
 	FROM [BlogItem] b 
-	INNER JOIN [User] u on u.[Id] = b.[CreatedByUser] 
+	LEFT JOIN [User] u on u.[Id] = b.[CreatedByUser] 
 	WHERE [BlogId] = @blogId
 RETURN 0

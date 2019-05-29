@@ -7,6 +7,8 @@ namespace CMS.Services
     {
         IEnumerable<MovieEntry> GetAllMovies();
         IEnumerable<MusicEntry> GetAllMusic();
+        IEnumerable<MovieDetails> GetAllMovieDetails();
+        IEnumerable<MusicDetails> GetAllMusicDetails();
 
         BaseEntity GetEntity(int id);
         int AddMovie(MovieDetails movie);

@@ -34,7 +34,9 @@ namespace CMS
             services.AddTransient<IHomeService, HomeService>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IAuthService, AuthService>();
-          
+            services.AddTransient<IEntityService, EntityService>();
+            services.AddTransient<IEventService, EventService>();
+            services.AddTransient<IRatingService, RatingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

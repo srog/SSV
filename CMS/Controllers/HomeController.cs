@@ -15,8 +15,18 @@ namespace CMS.Controllers
         }
         public IActionResult Index()
         {
-            var homeInfo = _homeService.GetHomeInfo();
-            return View(homeInfo);
+            return View(_homeService.GetHomeInfo());
+        }
+
+        public RedirectToActionResult Login()
+        {
+            _homeService.Login("admin", "password1");
+            return RedirectToAction("Index");
+        }
+        public RedirectToActionResult Logout()
+        {
+            _homeService.Logout();
+            return RedirectToAction("Index");
         }
 
         public IActionResult About()

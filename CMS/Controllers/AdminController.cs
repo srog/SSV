@@ -58,7 +58,7 @@ namespace CMS.Controllers
         // movies
         public IActionResult MovieList()
         {
-            var movieList = _entityService.GetAllMovies();
+            var movieList = _entityService.GetAllMovieDetails();
             return View("MovieList", movieList);
         }
 
@@ -87,7 +87,7 @@ namespace CMS.Controllers
         // music
         public IActionResult MusicList()
         {
-            var musicList = _entityService.GetAllMusic();
+            var musicList = _entityService.GetAllMusicDetails();
             return View("MusicList", musicList);
         }
 

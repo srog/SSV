@@ -16,10 +16,15 @@ namespace CMS.Views.Shared.Components.MusicRating
         public async Task<IViewComponentResult> InvokeAsync(int entityId)
         {
             var rating = _ratingService.GetRatingsForEntity(entityId);
+            decimal averageRating = 0;
 
-            var averageRating = rating.Sum(r => r.RatingValue) / rating.Count();
-
-            return View("MusicRating", averageRating.ToString());
+            if (rating.Count() != 0)
+            {
+                averageRating = (decimal)rating.Sum(r => r.RatingValue) / (decimal)rating.Count();
+            }
+            var ratingString = averageRating.ToString("0.##");
+            ratingString += " (" + rating.Count() + " votes)";
+            return View("MusicRating", ratingString);
         }
 
     }

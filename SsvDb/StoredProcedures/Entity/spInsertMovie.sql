@@ -4,9 +4,18 @@
 	@imageFilePath nvarchar(250),
 	@imdbLink nvarchar(250),
 	@imdbRating decimal,
-	@yearReleased int
+	@yearReleased int,
+	@id int output
 AS
+DECLARE @result int
+
 	INSERT INTO [Movie] ([EntityId], [Name], [ImageFilePath], [ImdbLink], [ImdbRating], [YearReleased])
 	VALUES (@entityId, @name, @imageFilePath, @imdbLink, @imdbRating, @yearReleased)
 
-RETURN 0
+
+	SET @id = SCOPE_IDENTITY()
+
+	SET @result  = @@ERROR  
+	SELECT @result
+
+	RETURN @result

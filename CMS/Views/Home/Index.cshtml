@@ -18,7 +18,7 @@
         <ul>
             @if (Model.LoggedInUsername != "")
             {
-                <li class="h3">Hi @Model.LoggedInUsername</li>
+                <li class="h3">Hi, @Model.LoggedInUsername</li>
             }
 
             <li class="h3">@DateTime.Now.ToLongDateString()</li>

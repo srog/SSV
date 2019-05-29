@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using CMS.DataAccess;
 using CMS.Models;
 using CMS.Models.Enums;
+using Dapper;
 
 namespace CMS.Services
 {
@@ -33,6 +35,32 @@ namespace CMS.Services
             return _dataAccessor.Query<MovieEntry>(GET_ALL_MOVIES);
         }
 
+        public IEnumerable<MovieDetails> GetAllMovieDetails()
+        {
+            var movies = _dataAccessor.Query<MovieEntry>(GET_ALL_MOVIES);
+            var movieList = new List<MovieDetails>();
+
+            foreach(var movie in movies)
+            {
+                var detail = GetMovieDetails(movie.Id);
+                movieList.Add(detail);
+            }
+            return movieList;
+
+        }
+        public IEnumerable<MusicDetails> GetAllMusicDetails()
+        {
+            var musics = _dataAccessor.Query<MusicEntry>(GET_ALL_MUSIC);
+            var musicList = new List<MusicDetails>();
+
+            foreach (var music in musics)
+            {
+                var detail = GetMusicDetails(music.Id);
+                musicList.Add(detail);
+            }
+            return musicList;
+        }
+
         public MovieDetails GetMovieDetails(int entityId)
         {
             return _dataAccessor.QuerySingle<MovieDetails>(GET_MOVIE, new {entityId});
@@ -61,19 +89,28 @@ namespace CMS.Services
 
         public int AddMusic(MusicDetails music)
         {
-            var entityId = _dataAccessor.QuerySingle<int>(INSERT,
-                new { name = music.Name, entityType = EntityTypeEnum.Music.GetHashCode() });
+            var allParam = new DynamicParameters();
+            allParam.Add("id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+            allParam.Add("name", music.Name);
+            allParam.Add("entityType", EntityTypeEnum.Music.GetHashCode());
+            var result = _dataAccessor.QuerySingle<int>(INSERT, allParam);
+            var newId = allParam.Get<int>("id");
 
             return _dataAccessor.QuerySingle<int>(INSERT_MUSIC,
-                new {entityId, music.ImageFilePath, music.SpotifyLink, music.YearReleased});
+                new {entityId = newId, music.ImageFilePath, music.SpotifyLink, music.YearReleased, music.Name});
         }
         public int AddMovie(MovieDetails movie)
         {
-            var entityId = _dataAccessor.QuerySingle<int>(INSERT,
-                new { name = movie.Name, entityType = EntityTypeEnum.Movie.GetHashCode() });
+            var allParam = new DynamicParameters();
+            allParam.Add("id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+            allParam.Add("name", movie.Name);
+            allParam.Add("entityType", EntityTypeEnum.Movie.GetHashCode());
+            
+            var result = _dataAccessor.QuerySingle<int>(INSERT, allParam);
+            var newId = allParam.Get<int>("id");
 
             return _dataAccessor.QuerySingle<int>(INSERT_MOVIE,
-                new { entityId, movie.ImageFilePath, movie.ImdbLink, movie.YearReleased, movie.ImdbRating });
+                new { entityId = newId, movie.ImageFilePath, movie.ImdbLink, movie.YearReleased, movie.ImdbRating, movie.Name });
         }
 
         public int UpdateMovieDetails(MovieDetails movie)

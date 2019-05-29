@@ -24,10 +24,12 @@ namespace CMS.Controllers
         }
 
         [HttpPost]
-        public void Rate(int entityId, int ratingValue, string ratingText)
+        public IActionResult Rate(int entityId, int ratingValue, string ratingText)
         {
             _ratingService.AddRating(entityId, _authService.GetCurrentUser().Id, ratingValue, ratingText);
+            ModelState.Clear();
 
+            return Index();
             // update view component ?
         }
 
