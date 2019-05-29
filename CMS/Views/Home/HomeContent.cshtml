@@ -1,0 +1,19 @@
+﻿@model int
+<div>
+    
+    <ul class="fa-list-ul">
+        <li class="h2">What's happening this week?</li>
+        @Component.InvokeAsync("EventView", new { daysOffset = Model }).Result
+
+        <li class="h2">Latest stuff..</li>
+        @Component.InvokeAsync("RecentActivity").Result
+
+
+
+        <li class="h2">Bookmarked Pages</li>
+        @Component.InvokeAsync("Bookmarks").Result
+
+
+    </ul>
+    
+</div>

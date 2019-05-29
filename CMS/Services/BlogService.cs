@@ -19,6 +19,7 @@ namespace CMS.Services
         private const string DELETE = "spDeleteBlog";
 
         private const string GET_ITEMS = "spGetBlogItems";
+        private const string GET_ALL_ITEMS = "spGetAllBlogItems";
         private const string GET_ITEM = "spGetBlogItem";
         private const string INSERT_ITEM = "spInsertBlogItem";
         private const string UPDATE_ITEM = "spUpdateBlogItem";
@@ -56,12 +57,10 @@ namespace CMS.Services
             var result = _dataAccessor.QuerySingle<int>(INSERT, allParam);
             if (result != 0)
             {
-                return 0; // error
+                return 0; 
             }
             return allParam.Get<int>("id");
-
-            //return _dataAccessor.Execute(INSERT, new { blog.Id, blog.Name, blog.CreatedBy });
-
+            
         }
 
         public int UpdateBlog(Blog blog)
@@ -77,6 +76,10 @@ namespace CMS.Services
         public IEnumerable<BlogItem> GetBlogItems(int blogId)
         {
             return _dataAccessor.Query<BlogItem>(GET_ITEMS, new { blogId });
+        }
+        public IEnumerable<BlogItem> GetAllBlogItems()
+        {
+            return _dataAccessor.Query<BlogItem>(GET_ALL_ITEMS);
         }
 
         public BlogItem GetBlogItem(int blogItemId)

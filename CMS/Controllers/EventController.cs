@@ -1,4 +1,6 @@
-﻿using CMS.Models;
+﻿using System;
+using System.Linq;
+using CMS.Models;
 using CMS.Models.Enums;
 using CMS.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -18,16 +20,25 @@ namespace CMS.Controllers
 
         public IActionResult Index()
         {
-            var events = _eventService.GetAllEventsForuser(_authService.GetCurrentUser().Id);
-            return View("Index", events);
+            return View("Index");
         }
 
-        public IActionResult AdminView()
+        public IActionResult ShowEvents(int day)
         {
-            var events = _eventService.GetAllEvents();
-            return View("Index", events);
+            var startDate = DateTime.Today.AddDays(day-1);
+            var endDate = DateTime.Today.AddDays(day + 1);
+            var eventDay = new EventDay
+                {
+                    Events = _eventService.GetAllEventsForCurrentUser()
+                    .Where(e => e.EventStart > startDate && e.EventEnd < endDate)    
+                    .ToList(),
+                    Date = DateTime.Now.AddDays(day)
+                };
+
+            return View("Index", eventDay);
         }
 
+        
         public IActionResult Create()
         {
             return View("CreateEvent");

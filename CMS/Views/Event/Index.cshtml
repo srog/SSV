@@ -1,0 +1,58 @@
+﻿@model EventDay
+
+<div>
+    <h2>
+        Events For: @Model.Date.ToString("dd MMM")
+    </h2>
+</div>
+<div>
+    <table class="table-striped" style="width: 100%">
+        <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Location
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                IsPublic
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var eventRecord in Model.Events)
+        {
+            <tr>
+                <td>
+                    @eventRecord.Id
+                </td>
+                <td>
+                    @eventRecord.Name
+                </td>
+                <td>
+                    @eventRecord.Description
+                </td>
+                <td>
+                    @eventRecord.Location
+                </td>
+                <td>
+                    @eventRecord.Status
+                </td>
+                <td>
+                    @eventRecord.IsPublic
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>

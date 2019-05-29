@@ -14,7 +14,7 @@ body{
 	font-size: 12px;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color:#000000;
-	background: #D4CB9D url(images/bg_bottom_repeat.jpg) repeat-x bottom;
+	background: white url(images/bg_bottom_repeat.jpg) repeat-x bottom;
 	border:0px yellow solid;
 }
 

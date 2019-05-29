@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 using CMS.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CMS.Views.Shared.Components.MusicRating
+namespace CMS.Views.Shared.Components.EntityRating
 {
-    public class MusicRatingViewComponent : ViewComponent
+    public class EntityRatingViewComponent : ViewComponent
     {
         private readonly IRatingService _ratingService;
 
-        public MusicRatingViewComponent(IRatingService ratingService)
+        public EntityRatingViewComponent(IRatingService ratingService)
         {
             _ratingService = ratingService;
         }
@@ -24,7 +24,7 @@ namespace CMS.Views.Shared.Components.MusicRating
             }
             var ratingString = averageRating.ToString("0.##");
             ratingString += " (" + rating.Count() + " votes)";
-            return View("MusicRating", ratingString);
+            return View("EntityRating", ratingString);
         }
 
     }

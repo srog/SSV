@@ -4,63 +4,21 @@
     ViewData["Title"] = "SS&V Home Page";
 }
 
-    <div>
+    @*<div>
         <img class="pull-right" src="images/fox.png" />
-    </div>
+    </div>*@
 
 <div>
     <img src="images/divider1.png" />
 </div>
 
-<div class="row">
-    <div class="col-md-3">
-
-        <ul>
-            @if (Model.LoggedInUsername != "")
-            {
-                <li class="h3">Hi, @Model.LoggedInUsername</li>
-            }
-
-            <li class="h3">@DateTime.Now.ToLongDateString()</li>
-
-
-            <li class="h3">@Html.ActionLink("This Week", "Index", "Event")</li>
-            <li class="text-primary">What's happening this week</li>
-
-            <li class="h3">@Html.ActionLink("Music", "Index", "Music")</li>
-            <li class="text-primary">Rate and review all the latest music releases</li>
-
-            <li class="h3">@Html.ActionLink("Movies", "Index", "Movies")</li>
-            <li class="text-primary">Rate and Review all the latest movies!!</li>
-
-
-
-
-            <li class="h3">@Html.ActionLink("Blog Index", "Index", "Blog")</li>
-            <li class="text-primary">Site Blog Home</li>
-
-            <li class="h3">@Html.ActionLink("Rate It", "Index", "Ratings")</li>
-            <li class="text-primary">News, Information, Latest</li>
-
-
-            <li class="h3">@Html.ActionLink("Games", "Index", "Games")</li>
-            <li class="text-primary">Fun Games, Play for Free!</li>
-
-        </ul>
-    </div>
-
-    @*<div class="col-md-3">
-        <textarea class="text-center" rows="15" cols="70" />
+<div style="margin-left: 20px; width: 80%; height: 70%">
     
-    </div>*@
+    @{await Html.RenderPartialAsync("HomeContent", Model.DayOffset);}
 
-        @*<div class="col-md-3">
-                @Html.EditorFor(model => model.SelectedDate, new { @class = "date-picker" })
-            </div>*@
+</div>
 
-    </div>
-
-    <div>
-        <img src="images/divider1.png" />
-    </div>
+<div>
+    <img src="images/divider1.png" />
+</div>
     

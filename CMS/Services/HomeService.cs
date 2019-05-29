@@ -1,4 +1,6 @@
-﻿using CMS.Models;
+﻿using System.Collections.Generic;
+using CMS.Data;
+using CMS.Models;
 using Microsoft.Extensions.Configuration;
 
 namespace CMS.Services
@@ -35,8 +37,15 @@ namespace CMS.Services
             return new HomeInfo
                 {
                     SiteCreatedDate = _configuration.GetValue<string>("SiteCreatedDate"),
-                    LoggedInUsername = loggedInUsername
+                    LoggedInUsername = loggedInUsername,
+                    DayOffset = 0
                 };
+        }
+
+        // Todo - make user-definable
+        public Dictionary<string, string> GetBookmarks()
+        {
+            return StaticData.Bookmarks;
         }
     }
 }
