@@ -104,6 +104,7 @@
     <Build Include="StoredProcedures\Entity\spGetMusicDetails.sql" />
     <Build Include="StoredProcedures\User\spInsertUser.sql" />
     <Build Include="StoredProcedures\User\spUpdateUser.sql" />
+    <Build Include="StoredProcedures\Blog\spGetAllBlogItems.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SsvDb.publish.xml" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CMS.Models.Enums;
 
 namespace CMS.Models
@@ -14,5 +15,19 @@ namespace CMS.Models
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
         public string Location { get; set; }
+    }
+
+    //public class EventList
+    //{
+    //    public List<Event> Events { get; set; }
+    //    public User UserRecord { get; set; }
+
+    //}
+
+    public class EventDay
+    {
+        public DateTime Date { get; set; }
+        public List<Event> Events { get; set; }
+
     }
 }

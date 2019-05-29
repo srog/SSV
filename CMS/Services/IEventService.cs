@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CMS.Models;
 using CMS.Models.Enums;
 
@@ -8,7 +9,8 @@ namespace CMS.Services
     {
         Event GetEvent(int id);
         IEnumerable<Event> GetAllEvents();
-        IEnumerable<Event> GetAllEventsForuser(int userId);
+        IEnumerable<Event> GetAllEventsForUser(int userId);
+        IEnumerable<Event> GetAllEventsForCurrentUser(DateTime? startDate=null, DateTime? endDate=null);
         int AddEvent(Event eventRecord);
         int UpdateEvent(int id, EventStatusEnum status);
     }

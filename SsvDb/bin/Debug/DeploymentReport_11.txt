@@ -1,0 +1,53 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Blog] (Table)
+       [dbo].[BlogItem] (Table)
+       [dbo].[BlogItem].[idx_blogitem] (Index)
+       [dbo].[Entity] (Table)
+       [dbo].[Event] (Table)
+       [dbo].[Movie] (Table)
+       [dbo].[Music] (Table)
+       [dbo].[Rating] (Table)
+       [dbo].[User] (Table)
+       [dbo].[spDeleteBlog] (Procedure)
+       [dbo].[spDeleteBlogItem] (Procedure)
+       [dbo].[spDeleteEvent] (Procedure)
+       [dbo].[spGetAllBlogs] (Procedure)
+       [dbo].[spGetAllEntities] (Procedure)
+       [dbo].[spGetAllEvents] (Procedure)
+       [dbo].[spGetAllMovies] (Procedure)
+       [dbo].[spGetAllMusic] (Procedure)
+       [dbo].[spGetAllUsers] (Procedure)
+       [dbo].[spGetBlog] (Procedure)
+       [dbo].[spGetBlogItem] (Procedure)
+       [dbo].[spGetBlogItems] (Procedure)
+       [dbo].[spGetEvent] (Procedure)
+       [dbo].[spGetEventsForUser] (Procedure)
+       [dbo].[spGetMovieDetails] (Procedure)
+       [dbo].[spGetMusicDetails] (Procedure)
+       [dbo].[spGetRatingsForEntity] (Procedure)
+       [dbo].[spGetUser] (Procedure)
+       [dbo].[spInsertBlog] (Procedure)
+       [dbo].[spInsertBlogItem] (Procedure)
+       [dbo].[spInsertEntity] (Procedure)
+       [dbo].[spInsertEvent] (Procedure)
+       [dbo].[spInsertMovie] (Procedure)
+       [dbo].[spInsertMusic] (Procedure)
+       [dbo].[spInsertRating] (Procedure)
+       [dbo].[spInsertUser] (Procedure)
+       [dbo].[spUpdateBlog] (Procedure)
+       [dbo].[spUpdateBlogItem] (Procedure)
+       [dbo].[spUpdateEvent] (Procedure)
+       [dbo].[spUpdateUser] (Procedure)
+
+** Supporting actions

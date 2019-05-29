@@ -1,0 +1,28 @@
+﻿@model int  
+
+@*+/- days to start at*@
+
+<div class="row">
+    <div class="col-md-1">
+        <a href='@Url.Action("IndexWithOffset", "Home", new { daysOffset = Model - 5})'>
+            <img src="~/images/toggle1_u.png" />
+        </a>
+    </div>
+
+    @for (var index = 0; index < 5; index++)
+    {
+        <a href="@Url.Action("ShowEvents", "Event", new { day = index+Model })">
+            <div class="col-md-1">
+                @Component.InvokeAsync("EventDay", new { eventDate = DateTime.Now.AddDays(index + Model) }).Result
+            </div>
+        </a>
+
+    }
+
+    <div class="col-md-1">
+        <a href='@Url.Action("IndexWithOffset", "Home", new { daysOffset = Model + 5})'>
+            <img src="~/images/toggle1_d.png" />
+        </a>
+    </div>
+
+    </div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CMS.Models.Activity>
+
+<table class="table-striped">
+    <thead>
+        <tr>
+            <th>
+                Activity
+            </th>
+            <th>
+                Go
+            </th>
+            <th>
+                When
+            </th>
+            <th>
+                Who
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded.ToString("dd-MMM"))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

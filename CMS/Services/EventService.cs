@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CMS.DataAccess;
 using CMS.Models;
 using CMS.Models.Enums;
@@ -8,6 +10,7 @@ namespace CMS.Services
     public class EventService : IEventService
     {
         private readonly IDataAccessor _dataAccessor;
+        private readonly IAuthService _authService;
 
         private const string GET = "spGetEvent";
         private const string GET_ALL = "spGetAllEvents";
@@ -17,9 +20,10 @@ namespace CMS.Services
         private const string DELETE = "spDeleteEvent";
 
 
-        public EventService(IDataAccessor dataAccessor)
+        public EventService(IDataAccessor dataAccessor, IAuthService authService)
         {
             _dataAccessor = dataAccessor;
+            _authService = authService;
         }
 
 
@@ -35,7 +39,24 @@ namespace CMS.Services
             return _dataAccessor.Query<Event>(GET_ALL);
         }
 
-        public IEnumerable<Event> GetAllEventsForuser(int userId)
+        public IEnumerable<Event> GetAllEventsForCurrentUser(DateTime? startDate=null, DateTime? endDate=null)
+        {
+            var currentUser = _authService.GetCurrentUser().Id;
+            var events = GetAllEventsForUser(currentUser);
+
+            if (startDate != null)
+            {
+                events = events.Where(e => e.EventStart > startDate);
+            }
+            if (endDate != null)
+            {
+                events = events.Where(e => e.EventStart < endDate);
+            }
+
+            return events;
+        }
+
+        public IEnumerable<Event> GetAllEventsForUser(int userId)
         {
             return _dataAccessor.Query<Event>(GET_FOR_USER, new {userId});
         }
