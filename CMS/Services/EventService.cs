@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using CMS.DataAccess;
 using CMS.Models;
 using CMS.Models.Enums;
+using Dapper;
 
 namespace CMS.Services
 {
+    public interface IEventService
+    {
+        Event GetEvent(int id);
+        IEnumerable<Event> GetAllEvents();
+        IEnumerable<Event> GetAllEventsForUser(int userId);
+        IEnumerable<Event> GetAllEventsForCurrentUser(DateTime? startDate = null, DateTime? endDate = null);
+        int AddEvent(Event eventRecord);
+        int UpdateEvent(int id, EventStatusEnum status);
+    }
     public class EventService : IEventService
     {
         private readonly IDataAccessor _dataAccessor;
@@ -43,7 +54,7 @@ namespace CMS.Services
         {
             var currentUser = _authService.GetCurrentUser().Id;
             var events = GetAllEventsForUser(currentUser);
-
+            
             if (startDate != null)
             {
                 events = events.Where(e => e.EventStart > startDate);
@@ -63,17 +74,23 @@ namespace CMS.Services
 
         public int AddEvent(Event eventRecord)
         {
-            return _dataAccessor.QuerySingle<int>(INSERT, new
-                {
-                    eventRecord.Name,
-                    eventRecord.Description,
-                    eventRecord.UserId,
-                    eventRecord.Status,
-                    eventRecord.IsPublic,
-                    eventRecord.EventStart,
-                    eventRecord.EventEnd,
-                    eventRecord.Location
-            });
+            var allParam = new DynamicParameters();
+            allParam.Add("id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+            allParam.Add("name", eventRecord.Name);
+            allParam.Add("description", eventRecord.Description);
+            allParam.Add("userid", eventRecord.UserId);
+            allParam.Add("status", eventRecord.Status);
+            allParam.Add("isPublic", eventRecord.IsPublic);
+            allParam.Add("eventStart", eventRecord.EventStart);
+            allParam.Add("eventEnd", eventRecord.EventEnd);
+            allParam.Add("location", eventRecord.Location);
+
+            var result = _dataAccessor.QuerySingle<int>(INSERT, allParam);
+            if (result != 0)
+            {
+                return 0;
+            }
+            return allParam.Get<int>("id");
         }
 
         public int UpdateEvent(int id, EventStatusEnum status)

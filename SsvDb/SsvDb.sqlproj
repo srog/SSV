@@ -64,6 +64,7 @@
     <Folder Include="StoredProcedures\Event" />
     <Folder Include="StoredProcedures\Entity" />
     <Folder Include="StoredProcedures\Rating" />
+    <Folder Include="StoredProcedures\ToDoItem" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Blog.sql" />
@@ -105,6 +106,11 @@
     <Build Include="StoredProcedures\User\spInsertUser.sql" />
     <Build Include="StoredProcedures\User\spUpdateUser.sql" />
     <Build Include="StoredProcedures\Blog\spGetAllBlogItems.sql" />
+    <Build Include="Tables\ToDoItem.sql" />
+    <Build Include="StoredProcedures\ToDoItem\spGetToDoItems.sql" />
+    <Build Include="StoredProcedures\ToDoItem\GetToDoItem.sql" />
+    <Build Include="StoredProcedures\ToDoItem\spInsertToDoItem.sql" />
+    <Build Include="StoredProcedures\ToDoItem\spUpdateToDoItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SsvDb.publish.xml" />
@@ -112,5 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SsvDb.refactorlog" />
   </ItemGroup>
 </Project>

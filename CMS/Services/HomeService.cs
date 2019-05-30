@@ -5,6 +5,15 @@ using Microsoft.Extensions.Configuration;
 
 namespace CMS.Services
 {
+    public interface IHomeService
+    {
+        HomeInfo GetHomeInfo();
+        Dictionary<string, string> GetBookmarks();
+
+        int Login(string username, string password);
+        void Logout();
+
+    }
     public class HomeService : IHomeService
     {
         private readonly IConfiguration _configuration;

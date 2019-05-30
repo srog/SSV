@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<CMS.Models.Blog>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Blogs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div>
-    <img src="images/divider1.png" />
+    <img src="~/images/divider1.png" />
 </div>
 
 
-<h2 class="h2" style="font-family:'Bodoni MT'; font-size:30px">All Blogs</h2>
+<h1>All Blogs</h1>
 
 <hr />
 
@@ -54,8 +54,8 @@
     </tbody>
 </table>
 <div>
-    <img src="images/divider1.png" />
+    <img src="~/images/divider1.png" />
 </div>
 <p>
-    <a asp-action="Create" class="h2" style="font-family:'Bodoni MT'; font-size:30px">Create New Blog</a>
+    <a asp-action="Create" class="h1">Create New Blog</a>
 </p>

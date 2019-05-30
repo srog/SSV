@@ -5,29 +5,36 @@
         Events For: @Model.Date.ToString("dd MMM")
     </h2>
 </div>
+
+<p>
+    <a asp-action="Create" asp-route-date=@Model.Date class="h2">Add Event</a>
+</p>
+
+
 <div>
     <table class="table-striped" style="width: 100%">
         <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Location
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                IsPublic
-            </th>
-        </tr>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    IsPublic
+                </th>
+                <th></th>
+            </tr>
         </thead>
 
         @foreach (var eventRecord in Model.Events)
@@ -51,8 +58,20 @@
                 <td>
                     @eventRecord.IsPublic
                 </td>
+                <td>
+                    <a href="@Url.Action("DeleteEvent", new {id = eventRecord.Id})">
+                        <img src="~/images/cross.png" , alt="Delete" />
+                    </a>
+                    <a href="@Url.Action("CompleteEvent", new {id = eventRecord.Id})">
+                        <img src="~/images/tick.png" , alt="Completed" />
+                    </a>
+                </td>
             </tr>
 
         }
     </table>
 </div>
+
+<p>
+    <a asp-action="Index" asp-controller="Home" class="h1">Back to home</a>
+</p>

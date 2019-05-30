@@ -8,9 +8,10 @@
         <br/>
 
       
-        @if (@Model.Events.Count > 0)
+        @foreach (var evt in Model.Events)
         {
-            @Model.Events.Count
+            <img src="~/images/tick.png" alt="Event"/>
+            @*@Model.Events.Count*@
         }
 
     </label>
