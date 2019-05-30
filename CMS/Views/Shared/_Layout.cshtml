@@ -30,9 +30,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SITE SOUND & VISION</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="font-family:'Bodoni MT'; font-size:30px">SITE SOUND & VISION</a>
 
-                @Component.InvokeAsync("LoginControl").Result
+                <div class="pull-right"> @Component.InvokeAsync("LoginControl").Result
+                </div>
             </div>
             <div style="height:30px; width:100%"></div>
             <div class="navbar-collapse collapse">

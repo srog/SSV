@@ -18,47 +18,58 @@ namespace CMS.Controllers
             _authService = authService;
         }
 
-        public IActionResult Index()
+
+
+        public IActionResult ShowEvents(DateTime date)
         {
-            return View("Index");
+            var eventDay = new EventDay
+                {
+                    Events = _eventService.GetAllEventsForCurrentUser()
+                        .Where(e => Utilities.DateTimeExtensions.IsInDateRange(date, e.EventStart, e.EventEnd))
+                        .ToList(),
+                    Date = date
+                };
+
+            return View("Index", eventDay);
         }
 
-        public IActionResult ShowEvents(int day)
+        public IActionResult ShowEvents(int daysOffset)
         {
-            var startDate = DateTime.Today.AddDays(day-1);
-            var endDate = DateTime.Today.AddDays(day + 1);
+            var startDate = DateTime.Today.AddDays(daysOffset-1);
+            var endDate = DateTime.Today.AddDays(daysOffset + 1);
             var eventDay = new EventDay
                 {
                     Events = _eventService.GetAllEventsForCurrentUser()
                     .Where(e => e.EventStart > startDate && e.EventEnd < endDate)    
                     .ToList(),
-                    Date = DateTime.Now.AddDays(day)
+                    Date = DateTime.Now.AddDays(daysOffset)
                 };
 
             return View("Index", eventDay);
         }
 
         
-        public IActionResult Create()
+        public IActionResult Create(DateTime date)
         {
-            return View("CreateEvent");
+            var newEvent = new Event() { EventStart = date.Date, EventEnd = date.Date };
+            return View("CreateEvent", newEvent);
         }
 
-        public IActionResult CreateEvent(Event eventRecord)
+        public IActionResult AddEvent(Event eventRecord)
         {
             var newId = _eventService.AddEvent(eventRecord);
-            return Index();
+            return ShowEvents(eventRecord.EventStart);
         }
 
-        public IActionResult DeleteEvent(int id)
+        public IActionResult DeleteEvent(int id, int daysOffset)
         {
             _eventService.UpdateEvent(id, EventStatusEnum.Deleted);
-            return Index();
+            return ShowEvents(daysOffset);
         }
-        public IActionResult CompleteEvent(int id)
+        public IActionResult CompleteEvent(int id, int daysOffset)
         {
             _eventService.UpdateEvent(id, EventStatusEnum.Complete);
-            return Index();
+            return ShowEvents(daysOffset);
         }
 
 

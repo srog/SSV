@@ -7,6 +7,22 @@ using Dapper;
 
 namespace CMS.Services
 {
+    public interface IEntityService
+    {
+        IEnumerable<MovieEntry> GetAllMovies();
+        IEnumerable<MusicEntry> GetAllMusic();
+        IEnumerable<MovieDetails> GetAllMovieDetails();
+        IEnumerable<MusicDetails> GetAllMusicDetails();
+
+        BaseEntity GetEntity(int id);
+        int AddMovie(MovieDetails movie);
+        int AddMusic(MusicDetails music);
+        MovieDetails GetMovieDetails(int entityId);
+        MusicDetails GetMusicDetails(int entityId);
+        int UpdateMovieDetails(MovieDetails movie);
+        int UpdateMusicDetails(MusicDetails music);
+    }
+
     public class EntityService : IEntityService
     {
         private readonly IDataAccessor _dataAccessor;

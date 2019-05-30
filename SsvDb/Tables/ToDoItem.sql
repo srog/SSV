@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[ToDoItem]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(250) NOT NULL,
+	[UserId] INT NOT NULL,
+	[Status] INT NOT NULL
+)

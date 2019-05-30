@@ -5,13 +5,13 @@
 <div class="row">
     <div class="col-md-1">
         <a href='@Url.Action("IndexWithOffset", "Home", new { daysOffset = Model - 5})'>
-            <img src="~/images/toggle1_u.png" />
+            <img src="~/images/toggle1_u.png" alt="Previous 5 days" />
         </a>
     </div>
 
     @for (var index = 0; index < 5; index++)
     {
-        <a href="@Url.Action("ShowEvents", "Event", new { day = index+Model })">
+        <a href="@Url.Action("ShowEvents", "Event", new { daysOffset = index+Model })">
             <div class="col-md-1">
                 @Component.InvokeAsync("EventDay", new { eventDate = DateTime.Now.AddDays(index + Model) }).Result
             </div>
@@ -21,7 +21,7 @@
 
     <div class="col-md-1">
         <a href='@Url.Action("IndexWithOffset", "Home", new { daysOffset = Model + 5})'>
-            <img src="~/images/toggle1_d.png" />
+            <img src="~/images/toggle1_d.png" alt="Next 5 days" />
         </a>
     </div>
 
