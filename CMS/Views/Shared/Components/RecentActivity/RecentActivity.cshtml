@@ -1,13 +1,10 @@
-﻿@model IEnumerable<CMS.Models.Activity>
+﻿@model IEnumerable<Activity>
 
-<table class="table-striped">
+<table class="table-bordered" style="width:100%">
     <thead>
         <tr>
             <th>
                 Activity
-            </th>
-            <th>
-                Go
             </th>
             <th>
                 When
@@ -21,13 +18,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                <a href=@Html.DisplayFor(modelItem => item.Link)> 
+                    @Html.DisplayFor(modelItem => item.Name)
+                </a>
+
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Link)
+                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateAdded.ToString("dd-MMM"))
+                @Html.DisplayFor(modelItem => item.DateAdded)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)

@@ -3,12 +3,12 @@
 <div class="fa-box" style="height: 60px; width: 60px; border-style: solid">
   
     
-    <label>
+    <label class="fa-bold">
         @Model.Date.ToString("dd MMM")
         <br/>
 
-        @*change this*@
-        if (@Model.Events.Count >= 0)
+      
+        @if (@Model.Events.Count > 0)
         {
             @Model.Events.Count
         }

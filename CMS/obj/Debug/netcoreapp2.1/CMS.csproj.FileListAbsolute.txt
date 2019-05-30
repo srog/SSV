@@ -152,7 +152,6 @@ D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\MovieList.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\MusicList.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Admin\UserList.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Music\MusicList.g.cshtml.cs
-D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\MusicRating\MusicRating.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\MusicRater\MusicRater.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\LoginControl\LoginControl.g.cshtml.cs
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\LoginControl\LoginControl.g.cshtml.cs
@@ -164,3 +163,10 @@ D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Componen
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\EventView\EventView.g.cshtml.cs
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Bookmarks\Bookmarks.g.cshtml.cs
 D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\RecentActivity\RecentActivity.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Event\Index.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Home\HomeContent.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Bookmarks\Bookmarks.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\EntityRating\EntityRating.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\EventDay\EventDay.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\EventView\EventView.g.cshtml.cs
+D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\RecentActivity\RecentActivity.g.cshtml.cs

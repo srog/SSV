@@ -52,7 +52,7 @@ namespace CMS.Services
             var allParam = new DynamicParameters();
             allParam.Add("id", dbType: DbType.Int32, direction: ParameterDirection.Output);
             allParam.Add("name", blog.Name);
-            allParam.Add("createdBy", blog.CreatedByUser);
+            allParam.Add("createdByUser", blog.CreatedByUser);
 
             var result = _dataAccessor.QuerySingle<int>(INSERT, allParam);
             if (result != 0)

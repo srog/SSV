@@ -4,7 +4,7 @@
     ViewData["Title"] = "SS&V Home Page";
 }
 
-    @*<div>
+@*<div>
         <img class="pull-right" src="images/fox.png" />
     </div>*@
 
@@ -13,12 +13,16 @@
 </div>
 
 <div style="margin-left: 20px; width: 80%; height: 70%">
-    
+
     @{await Html.RenderPartialAsync("HomeContent", Model.DayOffset);}
 
 </div>
 
+<br />
+<br />
+<br />
+
 <div>
     <img src="images/divider1.png" />
 </div>
-    
+
