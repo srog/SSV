@@ -24,17 +24,6 @@ namespace CMS.Controllers
             return View("Index", homeInfo);
         }
 
-        public RedirectToActionResult Login()
-        {
-            _homeService.Login("admin", "password1");
-            return RedirectToAction("Index");
-        }
-        public RedirectToActionResult Logout()
-        {
-            _homeService.Logout();
-            return RedirectToAction("Index");
-        }
-
         public IActionResult About()
         {
             ViewData["Message"] = "About Me.";

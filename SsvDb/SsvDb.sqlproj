@@ -111,6 +111,7 @@
     <Build Include="StoredProcedures\ToDoItem\GetToDoItem.sql" />
     <Build Include="StoredProcedures\ToDoItem\spInsertToDoItem.sql" />
     <Build Include="StoredProcedures\ToDoItem\spUpdateToDoItem.sql" />
+    <Build Include="StoredProcedures\Rating\spGetAllRatings.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SsvDb.publish.xml" />

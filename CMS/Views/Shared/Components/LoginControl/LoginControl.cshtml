@@ -2,10 +2,12 @@
 
 @if (Model.Id == 0)
 {
-    @Html.ActionLink("Login", "Login", "Home")
+    <label>Hi Guest! </label>
+    @Html.ActionLink("Register", "Register", "Admin")
+    @Html.ActionLink("Login", "Login", "Admin")
 }
 else
 {
     <label>Welcome, @Model.Username </label>
-    @Html.ActionLink("Logout", "Logout", "Home")
+    @Html.ActionLink("Logout", "Logout", "Admin")
 }

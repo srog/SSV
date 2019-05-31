@@ -176,3 +176,5 @@ D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Componen
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Event\CreateEvent.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\ToDoList\ToDoList.g.cshtml.cs
 D:\Code\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\TodoList\Index.g.cshtml.cs
+D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\LatestReviews\LatestReviews.g.cshtml.cs
+D:\Projects\Projects\SSV\CMS\obj\Debug\netcoreapp2.1\Razor\Views\Movie\MovieList.g.cshtml.cs

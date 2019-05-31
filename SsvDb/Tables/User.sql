@@ -5,5 +5,6 @@
 	[Username] NVARCHAR(250),
 	[Password] NVARCHAR(20),
 	[UserType] INT NOT NULL,
+	[Email] NVARCHAR(250),
 	[IsActive] BIT NOT NULL
 )

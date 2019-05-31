@@ -25,6 +25,7 @@ namespace CMS.DataAccess
 
                 var result = conn.Execute(storedProcName, param, commandType: CommandType.StoredProcedure);
 
+                conn.Close();
                 return result;
             }
         }
