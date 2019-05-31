@@ -1,7 +1,7 @@
 ﻿@model int
 <div>
     
-    <ul class="fa-list-ul">
+    <ul>
         <li class="h2">What's happening this week?</li>
         @Component.InvokeAsync("EventView", new { daysOffset = Model }).Result
 

@@ -14,7 +14,7 @@ body {
     font-size: 12px;
     font-family: Bodoni MT, Verdana, Arial, Helvetica, Sans-Serif;
     color: #000000;
-    background: white url(~/images/bg_bottom_repeat.jpg) repeat-x bottom;
+    background: lightgray url(~/images/bg_bottom_repeat.jpg) repeat-x bottom;
     border: 0px yellow solid;
 }
 

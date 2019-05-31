@@ -4,67 +4,77 @@
     ViewData["Title"] = "Movie List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
 
-<h1>All Movies</h1>
+<h2>Admin - Movie List</h2>
 
 <p>
     <a asp-action="CreateMovie">Create New Entry</a>
 </p>
-<hr/>
+<hr />
+@if (Model.Count() == 0)
+{
+    <h3>Nothing here yet!</h3>
+}
+else
+{
 
-<table class="table-bordered">
-    <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EntityId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImdbLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageFilePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImdbRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearReleased)
-        </th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntityId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImdbLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageFilePath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImdbRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YearReleased)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditMovie", new { id=item.EntityId })
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
-<hr/>
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntityId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImdbLink)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageFilePath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImdbRating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YearReleased)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntityId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImdbLink)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageFilePath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImdbRating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YearReleased)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditMovie", new { id = item.EntityId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<hr />
 <div>
-    @Html.ActionLink("Back to home", "Index", "Home");
+    @Html.ActionLink("Back to Admin Home", "Index", "Admin")
 </div>

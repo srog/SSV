@@ -1,21 +1,28 @@
 ﻿@model IEnumerable<ToDoItem>
 
     <div class="row">
-
-        @foreach (var item in Model)
+        @if (Model.Count() == 0)
         {
-            <div class="col-md-1">
-                <div class="fa-box" style="height: 60px; width: 200px; border-style: solid">
-                    <h3>@item.Name</h3>
-                </div>
-                
-                <a href='@Url.Action("CompleteToDoItem", "TodoList", new { id = item.Id })'>
-                    <img src="~/images/tick.png" alt="Mark As Done" />
-                </a>
-                <a href='@Url.Action("DeleteToDoItem", "TodoList", new { id = item.Id })'>
-                    <img src="~/images/trash.gif" alt="Delete Item" />
-                </a>
-            </div>
+            <h3>Nothing to do !!</h3>
         }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-1">
+                    <div class="fa-box" style="height: 60px; width: 200px; border-style: solid">
+                        <h3>@item.Name</h3>
+                    </div>
+                
+                    <a href='@Url.Action("CompleteToDoItem", "TodoList", new { id = item.Id })'>
+                        <img src="~/images/tick.png" alt="Mark As Done" />
+                    </a>
+                    <a href='@Url.Action("DeleteToDoItem", "TodoList", new { id = item.Id })'>
+                        <img src="~/images/trash.gif" alt="Delete Item" />
+                    </a>
+                </div>
+            }
+        }
+
     </div>
 

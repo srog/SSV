@@ -20,7 +20,7 @@ namespace CMS.Controllers
 
 
 
-        public IActionResult ShowEvents(DateTime date)
+        public IActionResult ShowEventsForDate(DateTime date)
         {
             var eventDay = new EventDay
                 {
@@ -58,7 +58,7 @@ namespace CMS.Controllers
         public IActionResult AddEvent(Event eventRecord)
         {
             var newId = _eventService.AddEvent(eventRecord);
-            return ShowEvents(eventRecord.EventStart);
+            return ShowEventsForDate(eventRecord.EventStart);
         }
 
         public IActionResult DeleteEvent(int id, int daysOffset)

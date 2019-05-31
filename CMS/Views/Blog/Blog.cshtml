@@ -4,53 +4,53 @@
     ViewData["Title"] = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div>
-        <a asp-action="Index" class="h3">Back to Blog Home</a>
-    </div>
 
-    <div style="width:50%" class="table-bordered text-danger">
-        <hr />
-        <label class="h2"><strong>Blog Details:</strong> @Model.Name</label>
-        <br />
-        <label class="h4"><strong>Created on: </strong> @Model.Created</label>
-        <br />
-        <label class="h4"><strong>Written By:</strong> @Model.CreatedByFullName</label>
-    </div>
+<br /><br /><br /><br /><br />
 
-<div>
-    <img src="~/images/divider1.png" />
+<div style="width:60%" class="table-bordered">
+    <hr />
+    <label class="h2"><strong>Blog:</strong> @Model.Name</label>
+    <br />
+    <label class="h4"><strong>Created on: </strong> @Model.CreatedString</label>
+    <br />
+    <label class="h4"><strong>Written By:</strong> @Model.CreatedByFullName</label>
 </div>
 
+
+<label class="h4">Create new entry:</label>
+
+@Html.TextAreaFor(Model => Model.NewItem, 3, 100, null)
+<input name="Create" type="submit" value="Post" />
+
+<hr/>
+<h4>Entries:</h4>
 <p>
     @using (Html.BeginForm("CreateBlogItem", "Blog", new { blogId = Model.Id }, FormMethod.Post))
     {
-    <ol>
-        @foreach (var item in Model.Items)
-        {
-        <li style="background-image:repeating-linear-gradient()">
-            <div class="h5">
-                Created on: @Html.DisplayFor(modelItem => item.Created)
-                <br />
-                By: @Html.DisplayFor(modelItem => item.CreatedByFullName)
-            </div>
-            <div class="h4" style="font-family:'Bodoni MT'; font-size:22px">
-                @Html.DisplayFor(modelItem => item.Text)
-            </div>
-            <div class="h4">
-                @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id, blogId = item.BlogId })
-            </div>
-            <hr />
-        </li>
-        }
-    </ol>
+        <ol>
+            @foreach (var item in Model.Items)
+            {
+                <li style="background-image:repeating-linear-gradient()">
+                    <div class="h5">
+                        Created on: @Html.DisplayFor(modelItem => item.Created)
+                        <br />
+                        By: @Html.DisplayFor(modelItem => item.CreatedByFullName)
+                    </div>
+                    <div class="h4" style="font-family:'Bodoni MT'; font-size:22px">
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </div>
+                    <div class="h4">
+                        @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id, blogId = item.BlogId })
+                    </div>
+                    <hr />
+                </li>
+            }
+        </ol>
         <div>
             <img src="~/images/divider1.png" />
         </div>
-
-        <label class="h4">Create new entry:</label>
-
-        @Html.TextAreaFor(Model => Model.NewItem, 3, 100, null)
-        <input name="Create" type="submit" value="Post" />
-
     }
 </p>
+<div>
+    <a asp-action="Index" class="h3">Back to Blog Home</a>
+</div>

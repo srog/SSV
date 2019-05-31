@@ -22,6 +22,11 @@ namespace CMS.Services
         private const string UPDATE = "spUpdateToDoItem";
         private const string GET = "spGetToDoItem";
 
+        public TodoService(IDataAccessor dataAccessor)
+        {
+            _dataAccessor = dataAccessor;
+        }
+
         #region Implementation of ITodoService
 
         public IEnumerable<ToDoItem> GetToDoItems(int userId)

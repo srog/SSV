@@ -4,13 +4,15 @@
     ViewData["Title"] = "User List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
 
-<h2>All Users</h2>
+<h2>Admin - Users</h2>
 
 <p>
     <a asp-action="CreateUser">Create New User</a>
 </p>
-<hr/>
+<hr />
 
 <table class="table-bordered">
     <thead>
@@ -37,39 +39,45 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditUser", new { id = item.Id }) |
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditUser", new { id = item.Id }) |
 
-                @if (item.IsActive)
-                {
-                    @Html.ActionLink("Disable", "DisableUser", new { id = item.Id })
-                }
-                else
-                {
-                    @Html.ActionLink("Activate", "ActivateUser", new { id = item.Id })
-                }
-            </td>
-        </tr>
-}
+                    @if (item.IsActive)
+                    {
+                        @Html.ActionLink("Disable", "DisableUser", new { id = item.Id })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Activate", "ActivateUser", new { id = item.Id })
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<hr />
+<div>
+    @Html.ActionLink("Back to Admin Home", "Index", "Admin")
+</div>

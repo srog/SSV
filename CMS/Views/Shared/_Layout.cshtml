@@ -18,8 +18,8 @@
     </environment>
    </head>
 <body>
-    <img src="images/divider1.png" />
-    <br />
+    
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -32,7 +32,8 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="font-family:'Bodoni MT'; font-size:30px">SITE SOUND & VISION</a>
 
-                <div class="pull-right"> @Component.InvokeAsync("LoginControl").Result
+                <div class="pull-right">
+                    @Component.InvokeAsync("LoginControl").Result
                 </div>
             </div>
             <div style="height:30px; width:100%"></div>
@@ -61,9 +62,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        
+
         @*Section ripped from Index*@
-        
+
         <div class="row">
             <div class="col-md-3">
                 <h2>Pinned Links</h2>
@@ -100,16 +101,16 @@
                 </ul>
             </div>
         </div>
-        
+
         @*End of section ripped from Index*@
-        
+
 
         <footer>
             <div>
-                <link href="http://www.facebook.com" src="images/social/facebook.png"  />
-                <link href="http://www.twitter.com"  src="images/social/twitter.png" />
-                <link href="http://www.outlook.com"  src="images/social/mail.png" />
-                <link href="http://www.google.com"  src="images/social/google.png" />
+                <link href="http://www.facebook.com" src="images/social/facebook.png" />
+                <link href="http://www.twitter.com" src="images/social/twitter.png" />
+                <link href="http://www.outlook.com" src="images/social/mail.png" />
+                <link href="http://www.google.com" src="images/social/google.png" />
             </div>
             <p>&copy; 2019 - FF Enterprises</p>
         </footer>

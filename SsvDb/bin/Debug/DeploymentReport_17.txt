@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[ToDoItem] (Table)
+       [dbo].[spGetToDoItem] (Procedure)
+       [dbo].[spGetToDoItems] (Procedure)
+       [dbo].[spInsertToDoItem] (Procedure)
+       [dbo].[spUpdateToDoItem] (Procedure)
+     Alter
+       [dbo].[spGetEventsForUser] (Procedure)
+
+** Supporting actions

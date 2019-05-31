@@ -27,17 +27,23 @@ namespace CMS.Controllers
         }
         public IActionResult CreateNewBlog(Blog blog)
         {
-            var newId = _blogService.AddBlog(new Blog { CreatedByUser = _authService.GetCurrentUser().Id, Name = blog.Name });
+            var newId = _blogService.AddBlog(new Blog
+            {
+                CreatedByUser = _authService.GetCurrentUser().Id,
+                Name = blog.Name
+            });
             return Blog(newId);
         }
 
         [HttpPost]
         public IActionResult CreateBlogItem(int blogId, Blog blogRecord)
         {
+            var user = _authService.GetCurrentUser();
+
             var newItem = new BlogItem {
                 BlogId = blogId,
                 Created = DateTime.Now,
-                CreatedByUser = _authService.GetCurrentUser().Id,
+                CreatedByUser = user.Id,
                 Text = blogRecord.NewItem
             };
             _blogService.AddBlogItem(newItem);

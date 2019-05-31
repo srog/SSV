@@ -14,8 +14,7 @@ namespace CMS.Services
         int AddBlog(Blog blog);
         int UpdateBlog(Blog blog);
         void DeleteBlog(int id);
-
-
+        
         IEnumerable<BlogItem> GetBlogItems(int blogId);
         IEnumerable<BlogItem> GetAllBlogItems();
 
@@ -61,7 +60,7 @@ namespace CMS.Services
         public Blog GetBlog(int id)
         {
             var blog = _dataAccessor.QuerySingle<Blog>(GET, new { id });
-            blog.Items = _dataAccessor.Query<BlogItem>(GET_ITEMS, new { blogId = blog.Id}).ToList();
+            blog.Items = GetBlogItems(id).OrderByDescending(b => b.Created).ToList();
             return blog;
         }
 
@@ -107,7 +106,12 @@ namespace CMS.Services
 
         public int AddBlogItem(BlogItem blogItem)
         {
-            return _dataAccessor.Execute(INSERT_ITEM, new { blogItem.Id, blogItem.CreatedByUser, blogItem.BlogId, blogItem.Text });
+            return _dataAccessor.Execute(INSERT_ITEM, new {
+                blogItem.Id,
+                blogItem.CreatedByUser,
+                blogItem.BlogId,
+                blogItem.Text
+            });
         }
 
         public int UpdateBlogItem(BlogItem blogItem)
