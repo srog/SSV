@@ -4,11 +4,12 @@
 	@fullName nvarchar(250),
 	@userType int,
 	@isActive bit,
+	@email nvarchar(250),
 	@id int output
 AS
 DECLARE @result int
-	INSERT INTO [User] ([Username], [Password], [Fullname], [UserType], [IsActive] )
-	VALUES (@username, @password, @fullName, @userType, @isActive)
+	INSERT INTO [User] ([Username], [Password], [Fullname], [UserType], [IsActive], [Email] )
+	VALUES (@username, @password, @fullName, @userType, @isActive, @email)
 	SET @id = SCOPE_IDENTITY()
 
 	SET @result  = @@ERROR  

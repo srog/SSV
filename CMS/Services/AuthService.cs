@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using CMS.DataAccess;
 using CMS.Models;
 using CMS.Models.Enums;
+using Dapper;
 
 namespace CMS.Services
 {
@@ -21,6 +22,7 @@ namespace CMS.Services
         int CreateUser(User user);
         int UpdateUser(User user);
         int DeleteUser(int id);
+        int ActivateUser(int id);
     }
     public class AuthService : IAuthService
     {
@@ -28,6 +30,7 @@ namespace CMS.Services
 
         private const string GET_USER = "spGetUser";
         private const string GET_ALL_USERS = "spGetAllUsers";
+        private const string INSERT_USER = "spInsertUser";
         private const string UPDATE_USER = "spUpdateUser";
 
         private readonly IDataAccessor _dataAccessor;
@@ -36,18 +39,17 @@ namespace CMS.Services
             _dataAccessor = dataAccessor;
         }
 
+        public User Guest()
+        {
+            return new User {FullName = "Guest", Id = 0, UserType = UserTypeEnum.Guest, Username = "Guest"};
+        }
 
         public User GetCurrentUser()
         {
             //var loggedInUserId = _loggedInUserId; // session / appsession / cookie
-
-            if (_loggedInUserId == 0)
-            {
-                return new User {FullName = "Guest", Id = 0, UserType = UserTypeEnum.Guest, Username = "Guest"};
-            }
-
-            return GetUser(_loggedInUserId);
+            return _loggedInUserId == 0 ? Guest() : GetUser(_loggedInUserId);
         }
+
         public string GetCurrentUsername()
         {
             return GetCurrentUser().Username;
@@ -60,17 +62,35 @@ namespace CMS.Services
 
         public User GetUser(int id)
         {
-            return _dataAccessor.QuerySingle<User>(GET_USER, new { id } );
+            var user =  _dataAccessor.QuerySingle<User>(GET_USER, new { id } );
+            return user ?? Guest();
         }
 
         public int CreateUser(User user)
         {
-            throw new NotImplementedException();
+            var allParam = new DynamicParameters();
+            allParam.Add("id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+            allParam.Add("username", user.Username);
+            allParam.Add("password", user.Password);
+            allParam.Add("fullName", user.FullName);
+            allParam.Add("isActive", user.IsActive);
+            allParam.Add("userType", user.UserType);
+            allParam.Add("email", user.Email);
+
+            var result = _dataAccessor.QuerySingle<int>(INSERT_USER, allParam);
+
+            if (result != 0)
+            {
+                return 0;
+            }
+            return allParam.Get<int>("id");
         }
 
         public int DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            var user = GetUser(id);
+            user.IsActive = false;
+            return UpdateUser(user);
         }
 
         public bool IsAdminUser()
@@ -80,7 +100,7 @@ namespace CMS.Services
 
         public bool IsAuthenticated()
         {
-            return true;
+            return _loggedInUserId > 0;
         }
 
         public int Login(string username, string password)
@@ -111,11 +131,13 @@ namespace CMS.Services
         public int UpdateUser(User user)
         {
             return _dataAccessor.QuerySingle<int>(UPDATE_USER,
-                new {user.Id, user.IsActive, user.Username, user.Password, user.UserType, user.FullName});
+                new {user.Id, user.IsActive, user.Username, user.Password, user.UserType, user.FullName, user.Email});
         }
-        //public void ActivateUser(int id)
-        //{
-
-        //}
+        public int ActivateUser(int id)
+        {
+            var user = GetUser(id);
+            user.IsActive = true;
+            return UpdateUser(user);
+        }
     }
 }

@@ -21,6 +21,17 @@ namespace CMS.Controllers
 
         // users
 
+        public RedirectToActionResult Login()
+        {
+            _authService.Login("admin", "password1");
+            return RedirectToAction("Index", "Home");
+        }
+        public RedirectToActionResult Logout()
+        {
+            _authService.Logout();
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult UserList()
         {
             var userList = _authService.GetAllUsers();

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Rating>
+
+<ul>
+    @if (!Model.Any())
+    {
+        <li><h4>No Reviews Yet!</h4></li>
+    }
+    else
+    {
+        foreach (var rating in Model)
+        {
+            <li>
+                <h4>User: @rating.UserId</h4>
+                <h5>
+                    @rating.EntityDescription :
+                </h5>
+                <h6>
+                    @rating.RatingText
+                </h6>
+
+            </li>
+        }
+    }
+</ul>

@@ -7,8 +7,8 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
-        <link rel="stylesheet" href="~/css/style.css"/>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     </environment>
-   </head>
+</head>
 <body>
     
 
@@ -70,25 +70,27 @@
                 <h2>Pinned Links</h2>
                 <ul>
                     <li><a target="_blank" href='https://thefunkyfox.bandcamp.com/'>Bandcamp Page</a> </li>
+                    <li>
+                        <a href="https://twitter.com/evenfl0w?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow us on Twitter!</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </li>
                     <li>Football Management Simulator - Play for free !</li>
                 </ul>
             </div>
 
+
             <div class="col-md-3">
-                <h2>Latest News/Articles</h2>
-                <ul>
-                    <li>Article 1</li>
-                    <li>Article 2</li>
-                    <li>Article 3</li>
-                    <li>Article 4</li>
-                </ul>
+                <h2>Latest From Twitter...</h2>
+                
+                <a class="twitter-timeline" href="https://twitter.com/EVENFL0W?ref_src=twsrc%5Etfw">Latest Tweets</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
             </div>
 
             <div class="col-md-3">
-                <h2>Latest Ratings/Reviews</h2>
-                <ul>
-                    <li>etc etc etc</li>
-                </ul>
+                <h2>Latest Ratings/Reviews/Articles</h2>
+                @Component.InvokeAsync("LatestReviews").Result
+
             </div>
 
             <div class="col-md-3">

@@ -11,10 +11,12 @@ namespace CMS.Views.Shared.Components.RecentActivity
     public class RecentActivityViewComponent : ViewComponent
     {
         private readonly IBlogService _blogService;
+        private readonly IRatingService _ratingService;
 
-        public RecentActivityViewComponent(IBlogService blogService)
+        public RecentActivityViewComponent(IBlogService blogService, IRatingService ratingService)
         {
             _blogService = blogService;
+            _ratingService = ratingService;
         }
 
         // Todo - extend to other types
@@ -43,6 +45,18 @@ namespace CMS.Views.Shared.Components.RecentActivity
                         Username = item.CreatedByFullName,
                         Link = "http://localhost:55136/Blog/" + item.Id
                     });
+            }
+
+            var ratings = _ratingService.GetLatest();
+            foreach (var rating in ratings)
+            {
+                recent.Add(new Activity
+                    {
+                       Name =  "Review for: " + rating.EntityDescription,
+                       DateAdded = rating.Created,
+                       Link = "http://localhost:55136/Movie",
+                       Username = rating.Username
+                });
             }
 
             var recentList = recent.OrderByDescending(r => r.DateAdded).Take(5);

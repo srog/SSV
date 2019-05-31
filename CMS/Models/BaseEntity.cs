@@ -9,7 +9,7 @@ namespace CMS.Models
         public DateTime Created { get; set; }
         public int CreatedByUser { get; set; }
 
-        public string CreatedString => Created.ToString("dd MMM yy");
+        public string CreatedString => Created.ToString("dd MMM");
 
     }
 }

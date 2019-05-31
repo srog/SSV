@@ -11,5 +11,7 @@ namespace CMS.Models
         public string RatingText { get; set; }
         public DateTime Created { get; set; }
 
+        public string EntityDescription { get; set; }
+        public string Username { get; set; }
     }
 }

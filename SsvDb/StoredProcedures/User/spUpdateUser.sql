@@ -4,6 +4,7 @@
 	@fullName nvarchar(250),
 	@userType int,
 	@isActive bit,
+	@email nvarchar(250),
 	@id int output
 	
 AS
@@ -12,6 +13,7 @@ AS
 		[Password] = @password,
 		[Fullname] = @fullName,
 		[UserType] = @userType,
+		[Email] = @email,
 		[IsActive] = @isActive
 	WHERE [Id] = @id
 RETURN 0
